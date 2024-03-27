@@ -29,7 +29,7 @@ def woe_iv(df,xvar,yvar='default'):
 
 df = pd.read_csv('data\data.csv')
 
-# Binning and computing WOE, IV
+## Binning and computing WOE, IV
 df['age_bin'] = pd.cut(df['age'], bins=5)                         # Example: 5 bins for age
 df['income_bin'] = pd.qcut(df['income'], q=5, duplicates='drop')  # Example: 5 quantile-based bins for income
 
@@ -56,7 +56,7 @@ df = pd.merge(df, df_age_woe[['age_bin', 'WOE_age_bin']], on='age_bin', how='lef
 df = pd.merge(df, df_educ_woe[['educ', 'WOE_educ']], on='educ', how='left')
 
 
-# LOGISTIC REGRESSION MODEL
+## LOGISTIC REGRESSION MODEL
 features = ['WOE_income_bin','WOE_age_bin','WOE_educ']  # Use WoE values for age and income, and include education
 target = 'default'
 

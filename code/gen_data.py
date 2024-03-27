@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 np.random.seed(0)
 n_obs = int(1e6)    # 1 million obs
 
-income = np.random.uniform(1, 10, size=n_obs) # 500k - 10 mio MNT
+income = np.random.uniform(1, 10, size=n_obs) # 1m - 10 mio MNT
 age = np.random.randint(18, 81, size=n_obs)  
 educ_mapping = {'No High School': 1,'High School': 2,'Bachelor': 3,'Above': 4}   
 educ = np.random.choice(list(educ_mapping.keys()), size=n_obs) # education from above mapping
