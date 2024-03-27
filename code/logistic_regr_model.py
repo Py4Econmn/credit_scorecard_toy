@@ -30,8 +30,8 @@ def woe_iv(df,xvar,yvar='default'):
 df = pd.read_csv('data\data.csv')
 
 ## Binning and computing WOE, IV
-df['age_bin'] = pd.cut(df['age'], bins=5)                         # Example: 5 bins for age
-df['income_bin'] = pd.qcut(df['income'], q=5, duplicates='drop')  # Example: 5 quantile-based bins for income
+df['age_bin'] = pd.cut(df['age'], bins=10)                         # Example: 5 bins for age
+df['income_bin'] = pd.qcut(df['income'], q=10, duplicates='drop')  # Example: 5 quantile-based bins for income
 
 
 attributes = ['income_bin', 'age_bin', 'educ']
@@ -89,7 +89,7 @@ coefficients = log_reg.coef_[0]
 intercept = log_reg.intercept_[0]
 
 pdo = 100               # points-to-double-the-odds - 700 has twice lower PD than 600, same with 600 vs 500
-target_odds  = 2/98
+target_odds  = 2/98     # 0.02/(1-0.02)
 target_score = 600      # Score will be 600 when 0.02/(1-0.02) = PD/(1-PD) is target_odds. Around 2% PD at 600
 factor = pdo/np.log(2)
 offset = target_score + factor*np.log(target_odds)
