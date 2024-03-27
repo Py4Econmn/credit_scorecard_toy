@@ -30,8 +30,8 @@ def woe_iv(df,xvar,yvar='default'):
 df = pd.read_csv('data\data.csv')
 
 # Binning and computing WOE, IV
-df['age_bin'] = pd.cut(df['age'], bins=10)                         # Example: 5 bins for age
-df['income_bin'] = pd.qcut(df['income'], q=10, duplicates='drop')  # Example: 5 quantile-based bins for income
+df['age_bin'] = pd.cut(df['age'], bins=5)                         # Example: 5 bins for age
+df['income_bin'] = pd.qcut(df['income'], q=5, duplicates='drop')  # Example: 5 quantile-based bins for income
 
 
 attributes = ['income_bin', 'age_bin', 'educ']
