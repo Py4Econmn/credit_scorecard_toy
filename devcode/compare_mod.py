@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 def comp():
-    df_tree = pd.read_csv('data\output_dt.csv')
+    df_tree = pd.read_csv('data\output_tree.csv')
     df_log  = pd.read_csv('data\output_log.csv')
 
     plt.scatter(df_tree['score'],df_log['score'])
